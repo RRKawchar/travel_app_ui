@@ -45,19 +45,20 @@ class _WelcomePageState extends State<WelcomePage> {
               child: Container(
                 margin:const  EdgeInsets.only(top: 150,left: 20,right: 20),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                        AppLargeText(text: "Trips",),
-                       AppSimpleText(text: "Mountain",size: 25,color: Colors.white54,),
+                       AppSimpleText(text: "Mountain",size: 25,color: AppColors.colorBlack,),
                        const SizedBox(height: 10,),
                        SizedBox(
                          width: 250,
                          child: AppSimpleText(
                            text: AppText.text1,
-                           color: AppColors.color1,
+                           color: AppColors.colorBlack,
                            size: 12,
                          ),
                        ),
@@ -65,6 +66,22 @@ class _WelcomePageState extends State<WelcomePage> {
                         ResponsiveButton(width: 100,),
 
                       ],
+                    ),
+                    Column(
+                      children: List.generate(3, (indexDots){
+
+                        return Container(
+
+                          margin:const EdgeInsets.only(bottom: 2),
+                        width: 8,
+                            height:index==indexDots?25:8,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color:index==indexDots?AppColors.mainColor:AppColors.colorBlack
+                          ),
+
+                        );
+                      }),
                     )
                   ],
                 ),
