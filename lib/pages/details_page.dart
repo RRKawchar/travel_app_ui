@@ -11,6 +11,9 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+
+
+  int gottenStar=3;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +71,19 @@ class _DetailsPageState extends State<DetailsPage> {
                           Icon(Icons.location_on,color: AppColors.colorPurple,),
                           AppSimpleText(text: "USA , California",color:AppColors.colorPurple.withOpacity(0.5),size: 16,)
                         ],
-                      )
+                      ),
+                      SizedBox(height: 20,),
+                      Row(
+                        children: [
+                          Wrap(
+                            children: List.generate(5, (index){
+                              return Icon(Icons.star,color:index<gottenStar?AppColors.starColor:AppColors.colorPurple);
+                            }),
+                          ),
+                          AppSimpleText(text: "(3.0)",color: AppColors.colorPurple,size: 18,)
+                        ],
+                      ),
+
                     ],
                   ),
                 )

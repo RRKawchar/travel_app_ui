@@ -7,6 +7,7 @@ class AppColors{
   static const colorBlack=Color(0xff000000);
   static const colorgray1=Color(0xff666666);
   static const colorPurple=Color(0xff7300e6);
+  static const starColor=Color(0xffff9900);
   static const colorWhit=Color(0xffffffff);
 
   static const mainColor=Color(0xff8c8c5a);

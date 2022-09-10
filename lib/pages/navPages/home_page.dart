@@ -156,7 +156,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                           SizedBox(height: 10,),
                           Container(
                             child: AppSimpleText(text: iconimages.values.elementAt(index),color: AppColors.colorBlack,size: 15,),
-                          )
+                          ),
+
 
                         ],
                       ),
