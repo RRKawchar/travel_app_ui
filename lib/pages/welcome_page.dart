@@ -51,7 +51,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                       AppLargeText(text: "Trips",),
+                       AppLargeText(text: "Trips", color: AppColors.colorWhit,),
                        AppSimpleText(text: "Mountain",size: 25,color: AppColors.colorBlack,),
                        const SizedBox(height: 10,),
                        SizedBox(

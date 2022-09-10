@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app_ui/widgets/app_colors.dart';
 import 'package:travel_app_ui/widgets/app_large_text.dart';
+import 'package:travel_app_ui/widgets/app_simple_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,6 +11,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
+
+  var images=[
+    "assets/images/mountain.png",
+    "assets/images/welcome_first.png",
+    "assets/images/welcome_one.png",
+
+  ];
+
+  var iconimages={
+    "assets/images/ballooning.png":"Ballooning",
+    "assets/images/flying.png":"Flying",
+    "assets/images/hiking.png":"Hiking",
+    "assets/images/kayaking.png":"Kayaking",
+    "assets/images/snorkling.png":"Snorkeling"
+
+  };
+
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController=TabController(length: 3, vsync: this);
@@ -53,7 +72,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                 indicator: CircleTabIndicator(color: AppColors.mainColor,radius: 4),
                 isScrollable: true,
                 controller: _tabController,
-                tabs: [
+                tabs: const [
                   Tab(text: "Places",),
                   Tab(text: "Insparation",),
                   Tab(text: "Emotions",),
@@ -62,16 +81,88 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
             ),
           ),
           Container(
+            padding:const EdgeInsets.only(left: 20,top: 15),
             height: 300,
             width: double.maxFinite,
             child: TabBarView(
                 controller: _tabController,
                 children: [
-                  Text("Hi"),
-                  Text("There"),
+                  ListView.builder(
+                    itemCount: images.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: Container(
+                        width: 200,
+                        height: 300,
+                        decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.colorWhit,
+                        image: DecorationImage(
+                        image: AssetImage(images[index]),fit: BoxFit.cover
+                        )
+                        ),
+                        ),
+                      );
+                    },
+
+                  ),
+                  Text("Md Sagor Khan"),
                   Text("Hello")
 
                 ]
+
+            ),
+          ),
+          SizedBox(height: 30,),
+          Container(
+            margin: EdgeInsets.only(left: 20,right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppLargeText(text: "Explore More",size: 22,color: AppColors.colorBlack,),
+                AppSimpleText(text: "See all",size: 16,color: AppColors.colorPurple,)
+                
+              ],
+            ),
+          ),
+          SizedBox(height: 15,),
+          Container(
+          margin:const EdgeInsets.only(left: 20),
+            height: 130,
+            width: double.maxFinite,
+            child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+              itemCount: iconimages.length,
+                itemBuilder: (context,index){
+
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 30),
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 80,
+                            height: 80,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: AppColors.colorWhit,
+                                image: DecorationImage(
+                                    image: AssetImage(iconimages.keys.elementAt(index)),fit: BoxFit.cover
+                                )
+                            ),
+                          ),
+                          SizedBox(height: 10,),
+                          Container(
+                            child: AppSimpleText(text: iconimages.values.elementAt(index),color: AppColors.colorBlack,size: 15,),
+                          )
+
+                        ],
+                      ),
+                    ),
+                  );
+                }
 
             ),
           )
