@@ -9,6 +9,7 @@ class AppColors{
   static const colorPurple=Color(0xff7300e6);
   static const starColor=Color(0xffff9900);
   static const colorWhit=Color(0xffffffff);
+  static const buttonBackground=Color(0xffe6e6ff);
 
   static const mainColor=Color(0xff8c8c5a);
 

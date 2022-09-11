@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app_ui/pages/details_page.dart';
 import 'package:travel_app_ui/widgets/app_colors.dart';
 import 'package:travel_app_ui/widgets/app_large_text.dart';
 import 'package:travel_app_ui/widgets/app_simple_text.dart';
@@ -142,15 +143,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                     child: Container(
                       child: Column(
                         children: [
-                          Container(
-                            width: 80,
-                            height: 80,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: AppColors.colorWhit,
-                                image: DecorationImage(
-                                    image: AssetImage(iconimages.keys.elementAt(index)),fit: BoxFit.cover
-                                )
+                          InkWell(
+                            onTap: (){
+
+                              Navigator.push(context, MaterialPageRoute(builder: (_)=>DetailsPage()));
+                            },
+                            child: Container(
+                              width: 80,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: AppColors.colorWhit,
+                                  image: DecorationImage(
+                                      image: AssetImage(iconimages.keys.elementAt(index)),fit: BoxFit.cover
+                                  )
+                              ),
                             ),
                           ),
                           SizedBox(height: 10,),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app_ui/pages/main_page.dart';
 import 'package:travel_app_ui/widgets/app_colors.dart';
 import 'package:travel_app_ui/widgets/app_large_text.dart';
 import 'package:travel_app_ui/widgets/app_simple_text.dart';
@@ -25,6 +26,7 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
+
             scrollDirection: Axis.vertical,
           itemCount: images.length,
           itemBuilder: (context,index){
@@ -63,7 +65,16 @@ class _WelcomePageState extends State<WelcomePage> {
                          ),
                        ),
                         const SizedBox(height: 30,),
-                        ResponsiveButton(width: 100,),
+                        ResponsiveButton(
+                           responsive: false,
+                          ),
+                        SizedBox(height: 20,),
+                        TextButton(
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (_)=>MainPage()));
+                            },
+                            child:AppLargeText(text: "Skip",color: Colors.orange,size: 20,)
+                        )
 
                       ],
                     ),
@@ -82,7 +93,8 @@ class _WelcomePageState extends State<WelcomePage> {
 
                         );
                       }),
-                    )
+                    ),
+
                   ],
                 ),
               ),
